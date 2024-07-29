@@ -1,0 +1,18 @@
+CREATE TABLE [dbo].[BankAccounts] (
+    [AccountNumber] NCHAR (16)   NOT NULL,
+    [Balance]       DECIMAL (18) NULL,
+    [AccountType]   NCHAR (10)   NULL,
+    [UserId]        INT          NULL,
+    PRIMARY KEY CLUSTERED ([AccountNumber] ASC),
+    FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users] ([UserId])
+);
+
+CREATE TABLE [dbo].[Users] (
+    [UserId]      INT        IDENTITY (1, 1) NOT NULL,
+    [Username]    NCHAR (25) NULL,
+    [Password]    NCHAR (65) NULL,
+    [Name]        NCHAR (25) NULL,
+    [Surname]     NCHAR (25) NULL,
+    [AccountType] NCHAR (10) NULL,
+    PRIMARY KEY CLUSTERED ([UserId] ASC)
+);
